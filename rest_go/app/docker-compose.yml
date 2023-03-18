@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  mongo:
+    container_name: ${CONTAINER_ID_NAME?Variable not set}-keycloak-db
+    image: mongo:latest
+    restart: unless-stopped
+    ports:
+      - ${MONGO_DB_EXPOSE_PORT?Variable not set}:${MONGO_DB_PORT?Variable not set}
+    command: mongod
